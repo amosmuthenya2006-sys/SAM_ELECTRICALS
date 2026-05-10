@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAM Electrical</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* 🌈 BACKGROUND */
+body{
+  color:white;
+  background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1e3c72);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  transition:1s ease;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* TOP BAR */
+.topbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  padding:10px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  z-index:1000;
+}
+
+.live{
+  color:lime;
+  font-weight:bold;
+}
+
+/* BUTTONS */
+button, select{
+  padding:6px 10px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero-box{
+  background:rgba(0,0,0,0.4);
+  padding:50px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0px)}
+}
+
+.hero h1{
+  font-size:4rem;
+}
+
+.hero span{
+  color:#ffb400;
+}
+
+/* SERVICES */
+#services{
+  padding:80px 20px;
+  text-align:center;
+}
+
+#services h2{
+  font-size:2.5rem;
+  color:#ffb400;
+  margin-bottom:40px;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(0,0,0,0.4);
+  padding:40px 20px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:0.4s;
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+  transform:scale(1.08);
+  border-color:#ffb400;
+  box-shadow:0 0 20px rgba(255,180,0,0.5);
+}
+
+.card h3{
+  color:#ffb400;
+}
+
+/* PORTFOLIO */
+#portfolio{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.port-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.port{
+  height:150px;
+  background:rgba(255,255,255,0.1);
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.port:hover{
+  transform:scale(1.05);
+  background:rgba(255,255,255,0.2);
+}
+
+/* REVIEWS */
+#reviews{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.review{
+  background:rgba(0,0,0,0.4);
+  padding:20px;
+  margin:10px;
+  border-radius:15px;
+  backdrop-filter: blur(10px);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  background:rgba(0,0,0,0.5);
+}
+
+/* FLOATING BUTTONS */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+.call{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:#ffb400;
+  color:black;
+  padding:12px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.maps{
+  position:fixed;
+  bottom:160px;
+  right:20px;
+  background:#4285F4;
+  color:white;
+  padding:12px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  🟢 LIVE SAM ELECTRICAL
+
+  <button onclick="toggleMode()">Auto Mode</button>
+
+  <select onchange="setManual(this.value)">
+    <option value="default">Blue</option>
+    <option value="sunset">Sunset</option>
+    <option value="purple">Purple</option>
+    <option value="green">Green</option>
+  </select>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>SAM <span>Electrical</span></h1>
+    <p>Powering Homes. Empowering Lives.</p>
+    <p>📞 0726764721</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+
+<h2>Our Services</h2>
+
+<div class="services-grid">
+
+<div class="card" onclick="whatsapp('Residential Wiring')"><h3>Residential Wiring</h3></div>
+<div class="card" onclick="whatsapp('Commercial Electrical')"><h3>Commercial Electrical</h3></div>
+<div class="card" onclick="whatsapp('Solar Installation')"><h3>Solar Solutions</h3></div>
+<div class="card" onclick="whatsapp('CCTV Installation')"><h3>CCTV Installation</h3></div>
+<div class="card" onclick="whatsapp('Electric Fence')"><h3>Electric Fence</h3></div>
+<div class="card" onclick="whatsapp('Motor Installation')"><h3>Motor Installation</h3></div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+<h2>Our Work</h2>
+<div class="port-grid">
+  <div class="port">Project 1</div>
+  <div class="port">Project 2</div>
+  <div class="port">Project 3</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+<h2>Reviews</h2>
+<div class="review">⭐⭐⭐⭐⭐ Fast and reliable service!</div>
+<div class="review">⭐⭐⭐⭐⭐ Very professional electrician.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2>SAM Electrical</h2>
+  <p>Fast • Reliable • Professional</p>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="whatsapp" onclick="whatsapp('General Inquiry')">💬</div>
+<div class="call" onclick="window.location.href='tel:0726764721'">📞</div>
+<div class="maps" onclick="window.open('https://maps.google.com')">📍</div>
+
+<script>
+
+/* WHATSAPP */
+function whatsapp(service){
+  let phone = "254726764721";
+  let msg = "Hello, I need " + service + " from SAM Electrical.";
+  window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank");
+}
+
+/* GRADIENTS */
+const gradients=[
+"linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1e3c72)",
+"linear-gradient(-45deg,#ff512f,#dd2476,#ffb400,#ff6a00)",
+"linear-gradient(-45deg,#8e2de2,#4a00e0,#6a11cb,#2575fc)",
+"linear-gradient(-45deg,#00b09b,#96c93d,#38ef7d,#11998e)"
+];
+
+let i=0;
+let auto=true;
+
+setInterval(()=>{
+if(auto){
+document.body.style.background=gradients[i];
+i=(i+1)%gradients.length;
+}
+},5000);
+
+function toggleMode(){
+auto=!auto;
+}
+
+function setManual(v){
+auto=false;
+if(v==="default")document.body.style.background=gradients[0];
+if(v==="sunset")document.body.style.background=gradients[1];
+if(v==="purple")document.body.style.background=gradients[2];
+if(v==="green")document.body.style.background=gradients[3];
+}
+
+</script>
+
+</body>
+</html>

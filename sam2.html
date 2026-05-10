@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAM Electrical</title>
+
+<style>
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* BODY */
+body{
+    color:white;
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1e3c72);
+    background-size:400% 400%;
+    transition:1s ease;
+}
+
+/* TOP BAR */
+.topbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    padding:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    z-index:1000;
+}
+
+button, select{
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 50px;
+}
+
+.hero-box{
+    background:rgba(0,0,0,0.4);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:4rem;
+}
+
+.hero span{
+    color:#ffb400;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+/* LOGO */
+.logo{
+    width:250px;
+    max-width:90%;
+    margin-bottom:10px;
+}
+
+/* SERVICES */
+#services{
+    padding:80px 20px;
+    text-align:center;
+}
+
+#services h2{
+    font-size:2.8rem;
+    margin-bottom:40px;
+    color:#ffb400;
+}
+
+/* SMART SERVICE CARDS */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:20px;
+}
+
+.service-card{
+    background:rgba(0,0,0,0.5);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.service-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    border:2px solid #ffb400;
+}
+
+.service-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.service-card h3{
+    padding:20px;
+    color:#ffb400;
+    font-size:1.2rem;
+}
+
+/* WHY CHOOSE US */
+.why-section{
+    background:#0d0d0d;
+    padding:60px 20px;
+}
+
+.features{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.feature-box{
+    background:#1a1a1a;
+    padding:25px;
+    border-radius:15px;
+    width:260px;
+}
+
+.feature-box h2{
+    margin-bottom:10px;
+}
+
+.center-text{
+    text-align:center;
+    margin-top:50px;
+}
+
+.center-text h1{
+    color:#ffb400;
+}
+
+.center-text p{
+    color:#00c853;
+    font-size:20px;
+}
+
+/* WHY LIST */
+.why-list{
+    margin-top:50px;
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:15px;
+}
+
+.why-list h2{
+    color:#ffb400;
+    margin-bottom:20px;
+}
+
+.why-list ul{
+    line-height:2;
+    font-size:18px;
+}
+
+/* CONTACT */
+#contact{
+    padding:50px 20px;
+    background:#111;
+    text-align:center;
+}
+
+#contact h2{
+    color:#ffb400;
+    margin-bottom:20px;
+}
+
+#contact a{
+    color:#00c853;
+    text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.6);
+}
+
+footer h2{
+    color:#ffb400;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+    .hero-box{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+    <code><marquee style="color: aliceblue;">Our Clients satisfaction is Our pride </marquee></code>
+
+    <button onclick="toggleMode()" id="modeBtn">
+        Auto Mode ON
+    </button>
+
+    <select onchange="setManual(this.value)">
+        <option value="default">Default Blue</option>
+        <option value="sunset">Sunset</option>
+        <option value="purple">Purple</option>
+        <option value="green">Green</option>
+        <option value="dark">Dark</option>
+    </select>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-box">
+<!-- LOGO -->
+    <img src="logo .jpeg" alt="SAM Electrical Logo" class="logo">
+        <h1>SAM <span>Electrical</span></h1>
+
+        <p>Powering Homes. Empowering Lives.</p>
+
+        <p>📞 0726764721</p>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+
+<h2>Our Services</h2>
+
+<div class="services-grid">
+
+    <!-- CARD 1 -->
+    <div class="service-card" onclick="whatsapp('Residential Wiring')">
+        <img src="resintential wiring.jfif" alt="Residential Wiring">
+        <h3>Residential Wiring</h3>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="service-card" onclick="whatsapp('Solar Solutions')">
+        <img src="solor solutions.jfif" alt="Solar Solutions">
+        <h3>Solar Solutions</h3>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="service-card" onclick="whatsapp('CCTV Installation')">
+        <img src="cctv instalation.jfif" alt="CCTV Installation">
+        <h3>CCTV Installation</h3>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="service-card" onclick="whatsapp('Electric Fence')">
+        <img src="electric fence.jfif" alt="Electric Fence">
+        <h3>Electric Fence</h3>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="service-card" onclick="whatsapp('Motor Installation')">
+        <img src="motor installation.jfif" alt="Motor Installation">
+        <h3>Motor Installation</h3>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="service-card" onclick="whatsapp('Commercial Electrical')">
+        <img src="commercial electrical.jfif" alt="Commercial Electrical">
+        <h3>Commercial Electrical</h3>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="service-card" onclick="whatsapp('Pump Wiring')">
+        <img src="pump wiring.jfif" alt="Pump Wiring">
+        <h3>Pump Wiring</h3>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="service-card" onclick="whatsapp('SignBoard & Branding')">
+        <img src="logo .jpeg" alt="Branding">
+        <h3>SignBoard & Branding</h3>
+    </div>
+
+</div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+
+<div class="features">
+
+    <div class="feature-box">
+        <h2 style="color:#28a745;">SAFE WORK</h2>
+        <p>We prioritize safety in every project.</p>
+    </div>
+
+    <div class="feature-box">
+        <h2 style="color:#ffb400;">RELIABLE POWER</h2>
+        <p>Delivering reliable and efficient solutions.</p>
+    </div>
+
+    <div class="feature-box">
+        <h2 style="color:#00c853;">EXPERT SUPPORT</h2>
+        <p>Professional support you can count on.</p>
+    </div>
+
+</div>
+
+<div class="center-text">
+
+    <h1>POWERING HOMES. EMPOWERING LIVES.</h1>
+
+    <p>Proudly serving Kenya 🇰🇪</p>
+
+</div>
+
+<div class="why-list">
+
+    <h2>WHY CHOOSE US?</h2>
+
+    <ul>
+        <li>✔ Quality workmanship</li>
+        <li>✔ Timely & reliable services</li>
+        <li>✔ Affordable solutions</li>
+        <li>✔ Customer satisfaction guaranteed</li>
+    </ul>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+<h2>CONTACT US</h2>
+
+<p>
+    Email:
+    <a href="mailto:mutuasam2004@gmail.com">
+        mutuasam2004@gmail.com
+    </a>
+</p>
+
+<br>
+
+<p>
+    Phone:
+    <a href="tel:+254726764721">
+        0726764721
+    </a>
+</p>
+
+<br>
+
+<p>Location: Kenya</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+<h2>SAM Electrical</h2>
+
+<p>Fast • Reliable • Professional</p>
+
+</footer>
+
+<script>
+
+let autoMode = true;
+let autoIndex = 0;
+
+/* GRADIENTS */
+const gradients = [
+
+"linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1e3c72)",
+
+"linear-gradient(-45deg,#ff512f,#dd2476,#ffb400,#ff6a00)",
+
+"linear-gradient(-45deg,#8e2de2,#4a00e0,#6a11cb,#2575fc)",
+
+"linear-gradient(-45deg,#00b09b,#96c93d,#38ef7d,#11998e)",
+
+"linear-gradient(-45deg,#000000,#1a1a1a,#111827,#000428)"
+
+];
+
+/* AUTO CHANGE */
+setInterval(() => {
+
+    if(autoMode){
+
+        document.body.style.background = gradients[autoIndex];
+
+        autoIndex = (autoIndex + 1) % gradients.length;
+
+    }
+
+}, 5000);
+
+/* MANUAL */
+function setManual(value){
+
+    autoMode = false;
+
+    document.getElementById("modeBtn").innerText =
+    "Auto Mode OFF";
+
+    if(value === "default")
+    document.body.style.background = gradients[0];
+
+    if(value === "sunset")
+    document.body.style.background = gradients[1];
+
+    if(value === "purple")
+    document.body.style.background = gradients[2];
+
+    if(value === "green")
+    document.body.style.background = gradients[3];
+
+    if(value === "dark")
+    document.body.style.background = gradients[4];
+
+}
+
+/* TOGGLE */
+function toggleMode(){
+
+    autoMode = !autoMode;
+
+    document.getElementById("modeBtn").innerText =
+    autoMode ? "Auto Mode ON" : "Auto Mode OFF";
+
+}
+
+/* WHATSAPP */
+function whatsapp(service){
+
+    let phone = "254726764721";
+
+    let msg =
+    "Hello, I need " + service +
+    " services from SAM Electrical.";
+
+    window.open(
+    "https://wa.me/" + phone +
+    "?text=" + encodeURIComponent(msg),
+    "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>

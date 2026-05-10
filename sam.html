@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAM Electrical</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🌈 DEFAULT GRADIENT (will change via JS) */
+body{
+  color:white;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* TOP BAR */
+.topbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  padding:10px;
+  text-align:center;
+  font-size:14px;
+  z-index:1000;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.live{
+  color:lime;
+  font-weight:bold;
+}
+
+/* DROPDOWN */
+select{
+  padding:5px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero-box{
+  background:rgba(0,0,0,0.4);
+  padding:40px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
+}
+
+.hero h1{
+  font-size:4rem;
+}
+
+.hero span{
+  color:#ffb400;
+}
+
+.hero p{
+  margin-top:10px;
+  color:#ddd;
+}
+
+/* SERVICES */
+#services{
+  padding:80px 20px;
+  text-align:center;
+}
+
+#services h2{
+  font-size:2.5rem;
+  margin-bottom:40px;
+  color:#ffb400;
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(0,0,0,0.4);
+  padding:40px 20px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.2);
+  transition:0.3s;
+  cursor:pointer;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover{
+  transform:scale(1.05);
+  border-color:#ffb400;
+}
+
+.card h3{
+  color:#ffb400;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 20px;
+  background:rgba(0,0,0,0.5);
+  margin-top:50px;
+}
+
+footer h2{
+  color:#ffb400;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+  🟢 SAM Electrical LIVE
+
+  <!-- 🎨 GRADIENT SELECTOR -->
+  <select onchange="changeGradient(this.value)">
+    <option value="default">Default Blue</option>
+    <option value="sunset">Sunset</option>
+    <option value="purple">Purple Dream</option>
+    <option value="green">Green Energy</option>
+    <option value="dark">Dark Tech</option>
+  </select>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-box">
+    <h1>SAM <span>Electrical</span></h1>
+    <p>Powering Homes. Empowering Lives.</p>
+    <p>📞 0726764721</p>
+    <p>📍 Kenya</p>
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+
+  <h2>Our Services</h2>
+
+  <div class="services-grid">
+
+    <div class="card" onclick="whatsapp('Residential Wiring')">
+      <h3>Residential Wiring</h3>
+    </div>
+
+    <div class="card" onclick="whatsapp('Commercial Electrical')">
+      <h3>Commercial Electrical</h3>
+    </div>
+
+    <div class="card" onclick="whatsapp('Solar Installation')">
+      <h3>Solar Solutions</h3>
+    </div>
+
+    <div class="card" onclick="whatsapp('CCTV Installation')">
+      <h3>CCTV Installation</h3>
+    </div>
+
+    <div class="card" onclick="whatsapp('Electric Fence')">
+      <h3>Electric Fence</h3>
+    </div>
+
+    <div class="card" onclick="whatsapp('Motor Installation')">
+      <h3>Motor Installation</h3>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2>SAM Electrical</h2>
+  <p>Fast • Reliable • Professional</p>
+</footer>
+
+<script>
+
+// 📲 WHATSAPP
+function whatsapp(service){
+  let phone = "254726764721";
+  let message = "Hello, I need " + service + " services from SAM Electrical.";
+  let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+
+/* 🌈 GRADIENT THEMES */
+function changeGradient(theme){
+
+  let body = document.body;
+
+  if(theme === "default"){
+    body.style.background = "linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1e3c72)";
+  }
+
+  else if(theme === "sunset"){
+    body.style.background = "linear-gradient(-45deg,#ff512f,#dd2476,#ffb400,#ff6a00)";
+  }
+
+  else if(theme === "purple"){
+    body.style.background = "linear-gradient(-45deg,#8e2de2,#4a00e0,#6a11cb,#2575fc)";
+  }
+
+  else if(theme === "green"){
+    body.style.background = "linear-gradient(-45deg,#00b09b,#96c93d,#38ef7d,#11998e)";
+  }
+
+  else if(theme === "dark"){
+    body.style.background = "linear-gradient(-45deg,#000000,#1a1a1a,#111827,#000428)";
+  }
+
+}
+
+</script>
+
+</body>
+</html>
